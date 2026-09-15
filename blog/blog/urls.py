@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", render_index),
     path("user/", include("userapp.urls")),
-    path("blog/", include("blog_app.urls"))
 ]
 
 # include() - включает маршрути доп. приложения, в основной список
