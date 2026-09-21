@@ -8,7 +8,3 @@ def render_index(request):
         template_name="blog_app/index.html"
     )
     
-
-
-# функция отображения, принимает в себя обязательный аргумент request
-# render() принимает в себя request

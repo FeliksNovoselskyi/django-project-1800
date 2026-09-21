@@ -17,13 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog_app.views import render_index
-from userapp.views import render_reg
+from user_app.views import render_reg
 from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", render_index),
-    path("user/", include("userapp.urls")),
+    path("", render_index, name="main_page"),
+    path("user/", include("user_app.urls")),
 ]
-
-# include() - включает маршрути доп. приложения, в основной список

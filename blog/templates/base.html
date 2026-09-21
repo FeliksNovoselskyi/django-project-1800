@@ -1,19 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block links %}
+    {% endblock %}
 </head>
 <body>
     <header>
-        <a href="/">Главная</a>
-        <a href="/user/reg">Регистрация</a>
+        <a href="{% url 'main_page' %}">Главная</a>
+        <a href="{% url 'reg_page' %}">Регистрация</a>
+        <a href="{% url 'auth_page' %}">Авторизація</a>
     </header>
 
     {% block content %}
     {% endblock %}
-
-    <!-- Jinja - инструмент для редактирования шаблонов -->
 </body>
 </html>
