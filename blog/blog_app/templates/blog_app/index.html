@@ -7,4 +7,14 @@
 
 {% block content %}
     <p>MAIN PAGE</p>
+
+    <!-- Создать цикл for, для перебора list_products -->
+    {% for product in list_products %}
+        <p style="color: pink;">{{ product }}</p>
+    {% endfor %}
+
+    {% if name %}
+        <p>{{ name }}</p>
+    {% endif %}
+
 {% endblock %}
