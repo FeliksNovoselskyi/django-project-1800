@@ -1,26 +1,16 @@
 from django.shortcuts import render
-
+from blog_app.models import Post
 
 # Create your views here.
 def render_index(request):
-
-    name = "arseniy"
-
-    list_products = ["banana", "persimmon", "kiwi"]
+    # получает все записи из таблицы
+    posts_list = Post.objects.all()
 
     return render(
         request=request,
         template_name="blog_app/index.html",
-        # несколько значений
-
-        # контекст шаблона
-        # значения
-
-        # context -
-        # контекст в формате словаря
         context={
-            "name": name,
-            "list_products": list_products
+            "posts_list": posts_list
         }
     )
 
