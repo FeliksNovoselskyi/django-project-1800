@@ -7,4 +7,10 @@
 
 {% block content %}
     <p>AUTH PAGE</p>
+    <!-- Перебрать список users -->
+    <!-- Вывести email каждого пользователя -->
+    {% for user in users %}
+        <p>{{ user.email }}</p>
+    {% endfor %}
+
 {% endblock %}
