@@ -1,0 +1,10 @@
+<!-- Расширить base.html -->
+{% extends 'base.html' %}
+
+<!-- вывести данные переменной post -->
+<!-- title1, content, is_publish -->
+{% block content %}
+    <p>{{ post.title1 }}</p>
+    <p>{{ post.content }}</p>
+    <p>{{ post.is_publish }}</p>
+{% endblock %}

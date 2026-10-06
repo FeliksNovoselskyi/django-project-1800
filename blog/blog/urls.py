@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", render_index, name="main_page"),
     path("user/", include("user_app.urls")),
+    path("post/", include("blog_app.urls"))
 ]
+
