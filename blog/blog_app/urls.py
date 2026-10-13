@@ -1,12 +1,7 @@
-from django.urls import path
+# Импортировать path
 from blog_app.views import render_post
-# Камилла: создать маршрут для функции render_post
-# posts/
+from django.urls import path
 
 urlpatterns = [
-    path('posts/<int:pk>', render_post, name = 'post')
+    path('posts/<int:pk>', render_post, name='post_view')
 ]
-
-# <> - динамическая часть адреса
-# int - тип этой части
-# pk - название уникальной части

@@ -1,41 +1,25 @@
-#character
 from django.db import models
+from django.urls import reverse
+from user_app.models import Author
 
-# models.Model - базовая модель
 
-# Create your models here.
 class Post(models.Model):
-
-    title1 = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     content = models.TextField()
-    is_publish = models.BooleanField()
-    
-    def __str__(self):
-        return f"{self.id}" 
+    is_publish = models.BooleanField(default=False)
 
-# Редактирование записи
-# 1. получить обхект
-# 2. поменять значения полей
-# 3. сохранить
+    author = models.ForeignKey(
+        Author,
+        on_delete = models.CASCADE,
+        null = True # разрешаем пустое поле
+    )
 
+    def get_absolute_url(self):
 
-# id__gt = 1 - получить записи, чей id больше 1
+        return reverse("post_view", kwargs={"pk": self.pk})
 
-# gt - greater than
-# lt - less than 
-# gte - greater than / equal
-# lte - less that / equal
+# 1. модель
+# 2. on_delete - что произойдет при удалении связанной записи
+# models.CASCADE - если удалена связанная запись, то и эта будет тоже удалена
 
-# Пишем через __
-# gt - >
-# lt - <
-# gte - >=
-# lte - <=
-
-# id__lt
-
-
-# CharField() - поле для сохранения строки
-# TextField() - поле для сохранения большой строки
-# IntegerField() - поле для сохранения числа
-# BooleanField() - поле для булевых значений (True/False)
+# ForeignKey - создается связь One-to-Many

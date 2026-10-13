@@ -7,6 +7,8 @@ def render_index(request):
 
     posts_list = Post.objects.all()
 
+    print(posts_list)
+
     return render(
         request=request,
         template_name="blog_app/index.html",
@@ -15,14 +17,17 @@ def render_index(request):
         }
     )
 
-
-# Миша Панков: создать функцию отображения для шаблона post_view.html
+# Арсений
+# собрать функцию отображения для страницы конкретного поста
 def render_post(request, pk):
-    
-    print(pk)
-    
-    # Получить по pk запись поста (Post)
+
     post = Post.objects.get(pk=pk)
-    
-    # Передать полученный пост на шаблон
-    return render(request=request,template_name="blog_app/post_view.html", context= {"post": post})
+
+    # post_view.html
+    return render(
+        request=request,
+        template_name="blog_app/post_view.html",
+        context={
+            "post": post
+        }
+    )
