@@ -1,0 +1,9 @@
+{# Расширить базовый шаблон #}
+
+{% extends 'base.html' %}
+
+
+{# Открыть блок content #}
+{%block content%}
+    <h1>Автор: {{ author.name }}</h1>
+    {%endblock%}
