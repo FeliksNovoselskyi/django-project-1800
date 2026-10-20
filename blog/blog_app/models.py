@@ -8,7 +8,19 @@ class Post(models.Model):
     content = models.TextField()
     is_publish = models.BooleanField(default=False)
     
-    author = models.ForeignKey(Author,null= True,on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        Author,
+        null=True,
+        on_delete=models.CASCADE,
+        # Именуем связь
+        related_name = "posts"
+    )
+    
+    # models.ForeignKey(
+    #     ...
+    #     # Именует связь
+    #     related_name=""
+    # )
     
     def get_absolute_url(self):
         return reverse("post_view", kwargs={"pk": self.pk})

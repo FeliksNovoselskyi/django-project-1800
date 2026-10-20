@@ -4,6 +4,10 @@
 
 
 {# Открыть блок content #}
-{%block content%}
+{% block content %}
     <h1>Автор: {{ author.name }}</h1>
-    {%endblock%}
+
+    {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    {% endfor %}
+{% endblock %}
