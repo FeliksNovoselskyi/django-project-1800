@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block content %}
+    {# form - тег для формы  #}
+    {# method - тип запроса  #}
+    {# action - ссылка (место куда запрос будет отправлен) #}
+
+    {# input - тег для поля ввода #}
+
+    {# type - тип поля  #}
+    {# text - поле для обычного текста  #}
+    {# email - поле для почты  #}
+    {# password - поле для пароля  #}
+    {# url - поле для ссылки  #}
+    {# file - поле для файла  #}
+
+    <form method="post" action="{% url 'form_request' %}">
+
+        <input type="text">
+        <input type="email">
+        <input type="password">
+        <input type="url">
+        <input type="file">
+
+        <button type="submit">Отправить</button>
+        {# button типы: #}
+        {# type="submit" - отправка форма #}
+        {# type="reset" -  очистка формы без отправки #}
+
+    </form>
+{%endblock content %}

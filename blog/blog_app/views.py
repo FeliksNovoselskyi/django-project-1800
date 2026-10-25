@@ -1,5 +1,6 @@
 from blog_app.models import Post
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 
 
 # Create your views here.
@@ -31,3 +32,13 @@ def render_post(request, pk):
             "post": post
         }
     )
+
+def render_form(request):
+    return render(request=request,template_name="blog_app/form.html")
+
+
+
+# Пишем обработку запроса от формы
+@require_POST # - указывает, что произойдет обработка запроса типа POST
+def handle_form_request(request):
+    print("post zapros")
