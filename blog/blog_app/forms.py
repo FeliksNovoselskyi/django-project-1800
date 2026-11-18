@@ -8,6 +8,7 @@
 """
 from django import forms
 from django.forms.models import ModelForm
+from blog_app.models import Tag
 
 # Form - базовый класс для создания формы
 # required=True - поле требуется
@@ -58,3 +59,12 @@ class PostForm(forms.Form):
         required=False,
         min_value=1
     )
+
+
+# Арсений. Создать TagForm от класса ModelForm
+# В классе Meta указать все поля, и указать модель Tag
+
+class TagForm(forms.ModelForm):
+    class Meta:
+        model = Tag
+        fields = '__all__'

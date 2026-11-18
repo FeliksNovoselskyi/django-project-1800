@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views.decorators.http import require_POST
 
-from .forms import PostForm
+from .forms import PostForm, TagForm
 
 
 # Create your views here.
@@ -39,7 +39,7 @@ def render_post(request, pk):
 
 def render_form(request):
     form = PostForm()
-    
+
     return render(
         request=request,
         template_name="blog_app/form.html",
@@ -75,3 +75,29 @@ def handle_form(request):
     )
 
     return redirect(to="main_page")
+
+# Создать функцию отображения для шаблона tag_form.html
+def render_tags(request):
+
+    print(request.method)
+
+    # Проверка на метод запроса - "POST"
+    if request.method == "POST":
+        # request.POST - данные пришедшие с запросом
+        tag_form = TagForm(request.POST)
+
+        if tag_form.is_valid():
+            # save - сохраняет запись в БД
+            tag_form.save()
+            return redirect(to="main_page")
+
+    else:
+        tag_form = TagForm()
+
+    return render(
+        request=request,
+        template_name="blog_app/tag_form.html",
+        context={
+            "tag_form": tag_form
+        }
+    )

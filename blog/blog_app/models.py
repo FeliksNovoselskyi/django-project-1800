@@ -7,7 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     is_publish = models.BooleanField(default=False)
-    
+
     author = models.ForeignKey(
         Author,
         null=True,
@@ -15,12 +15,17 @@ class Post(models.Model):
         # Именуем связь
         related_name = "posts"
     )
-    
+
     # models.ForeignKey(
     #     ...
     #     # Именует связь
     #     related_name=""
     # )
-    
+
     def get_absolute_url(self):
         return reverse("post_view", kwargs={"pk": self.pk})
+
+class Tag(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    is_active = models.BooleanField(default=True)

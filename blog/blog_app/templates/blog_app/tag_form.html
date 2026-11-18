@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ tag_form.as_p }}
+
+        <!-- Данил. Создать кнопку с типом submit -->
+        <button type = "submit">Відістлати новою почтою</button>
+    </form>
+{% endblock content %}
